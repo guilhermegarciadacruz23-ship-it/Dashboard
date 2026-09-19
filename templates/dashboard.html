@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ValidaHub | Controle de validade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">V</span><span>ValidaHub</span></div>
+      <div class="side-label">Monitoramento</div>
+      <div class="side-item active"><span>▦</span> Visão geral</div>
+      <div class="side-item"><span>◷</span> Histórico</div>
+      <div class="side-footer"><span class="pulse"></span> Dados em tempo real</div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div><p class="eyebrow">CENTRO DE CONTROLE</p><h1>Validade do parque</h1></div>
+        <div class="top-actions"><span id="updated">Atualizando...</span><button class="export-button" id="export-excel" title="Exportar dados para Excel" style="border:0;border-radius:9px;background:#087f73;color:#fff;padding:11px 14px;font:600 12px 'DM Sans',sans-serif;cursor:pointer">⇩ <span>Exportar Excel</span></button><button class="icon-button" id="refresh" title="Atualizar dados">↻</button></div>
+      </header>
+
+      <section id="critical-banner" class="critical-banner hidden">
+        <span class="banner-icon">!</span><div><strong id="critical-title">Ação imediata necessária</strong><p id="critical-copy"></p></div>
+      </section>
+
+      <section class="kpi-grid" aria-label="Indicadores">
+        <article class="kpi"><span class="kpi-label">Total cadastrado</span><strong id="total">—</strong><span class="kpi-note">ferramentas ativas</span></article>
+        <article class="kpi kpi-danger"><span class="kpi-label">Vencidas</span><strong id="expired">—</strong><span class="kpi-note">uso bloqueado</span></article>
+        <article class="kpi kpi-warn"><span class="kpi-label">Vencem em 30 dias</span><strong id="thirty">—</strong><span class="kpi-note">planeje a renovação</span></article>
+        <article class="kpi kpi-good"><span class="kpi-label">Conformidade</span><strong id="compliance">—</strong><span class="kpi-note">sem vencimento</span></article>
+      </section>
+
+      <section class="charts-grid">
+        <article class="panel chart-panel"><div class="panel-head"><div><p class="panel-kicker">DISTRIBUIÇÃO</p><h2>Situação atual</h2></div><span class="legend-note">por status</span></div><div class="donut-wrap"><canvas id="status-chart"></canvas><div class="donut-center"><strong id="healthy-total">—</strong><span>em dia</span></div></div></article>
+        <article class="panel chart-panel monthly"><div class="panel-head"><div><p class="panel-kicker">PLANEJAMENTO</p><h2>Próximos vencimentos</h2></div><span class="legend-note">quantidade / mês</span></div><div class="chart-wrap"><canvas id="monthly-chart"></canvas></div></article>
+        <article class="panel chart-panel material-panel"><div class="panel-head"><div><p class="panel-kicker">RASTREAMENTO</p><h2>Validade por material</h2></div><select id="material-filter" aria-label="Selecionar material"><option value="">Todos os materiais</option></select></div><div class="chart-wrap"><canvas id="material-chart"></canvas></div></article>
+      </section>
+
+      <section class="panel action-panel"><div class="panel-head action-head"><div><p class="panel-kicker">MONITORAMENTO</p><h2>Precisa de atenção</h2><p class="panel-subtitle">Vencidas e itens dentro da janela de alerta de 30 dias.</p></div><select id="category-filter" aria-label="Filtrar por categoria"><option value="">Todas as categorias</option></select></div>
+        <div class="table-wrap"><table><thead><tr><th>Produto</th><th>Categoria</th><th>Local</th><th>Vencimento</th><th>Prazo</th><th>Status</th></tr></thead><tbody id="products"></tbody></table><div id="empty" class="empty hidden">Nenhuma ferramenta exige ação neste momento.</div></div>
+      </section>
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>
