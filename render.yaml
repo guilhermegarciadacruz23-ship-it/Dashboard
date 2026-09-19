@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: valihub-dashboard
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: GOOGLE_SHEETS_CSV_URL
+        value: "https://docs.google.com/spreadsheets/d/1T7jJofl96ynOGYg5RbRf2iIruN7wo3q7-tL6Bix4ZY0/export?format=csv&gid=0"

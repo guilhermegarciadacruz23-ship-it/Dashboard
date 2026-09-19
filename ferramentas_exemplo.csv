@@ -1,0 +1,6 @@
+codigo,nome,fabricante,modelo,numero_serie,categoria,localizacao,responsavel,data_aquisicao,data_ultima_calibracao,data_validade,periodicidade_meses,custo_calibracao
+FER-1001,Paquimetro digital 200mm,Mitutoyo,500-197-30,X1001,Metrologia,Laboratorio,Juliana Alves,10/03/2022,15/02/2026,15/02/2027,12,190.00
+FER-1002,Torquimetro de estalo 120Nm,Gedore,TBN 120,X1002,Torque,Oficina Mecanica,Carlos Souza,05/07/2021,20/09/2025,20/09/2026,12,260.00
+FER-1003,Multimetro True RMS,Fluke,179,X1003,Eletrica,Linha de Montagem 1,Marcos Lima,18/01/2023,01/10/2025,01/10/2026,12,300.00
+FER-1004,Cinta de elevacao 5t,Cavalete,CE-5T,X1004,Icamento,Almoxarifado Central,Ana Ribeiro,22/11/2024,22/05/2026,22/11/2026,6,95.00
+FER-1005,Manometro 0-16 bar,Wika,233.50,X1005,Metrologia,Oficina Mecanica,Carlos Souza,30/06/2020,12/08/2025,12/08/2026,12,145.00
