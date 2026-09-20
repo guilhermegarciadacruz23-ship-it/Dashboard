@@ -1,7 +1,7 @@
 let statusChart; let monthlyChart; let materialChart;
 const statusOrder = ['VENCIDA', 'CRITICO', 'ALERTA', 'AVISO', 'ATENCAO', 'OK'];
 const statusLabels = {VENCIDA:'Vencidas', CRITICO:'Crítico (7 dias)', ALERTA:'Alerta (15 dias)', AVISO:'Aviso (30 dias)', ATENCAO:'Atenção (60 dias)', OK:'Em dia'};
-const statusColors = {VENCIDA:'#c63845', CRITICO:'#e46062', ALERTA:'#d98222', AVISO:'#e9bc40', ATENCAO:'#7dbab0', OK:'#19835f'};
+const statusColors = {VENCIDA:'#e31b54', CRITICO:'#f05a7f', ALERTA:'#e1a72c', AVISO:'#e8c55a', ATENCAO:'#6e69c8', OK:'#2e8c7d'};
 
 function formatDate(value) { return new Intl.DateTimeFormat('pt-BR').format(new Date(`${value}T00:00:00`)); }
 function formatDays(days) { const n = Number(days); return n < 0 ? `vencida há ${Math.abs(n)} dia(s)` : n === 0 ? 'vence hoje' : `${n} dia(s)`; }
@@ -16,7 +16,7 @@ function drawStatusChart(items) {
 }
 function drawMonthlyChart(items) {
   if (monthlyChart) monthlyChart.destroy();
-  monthlyChart = new Chart(document.getElementById('monthly-chart'), { type: 'bar', data: { labels: items.map(i => i.ano_mes_vencimento), datasets: [{ label: 'Ferramentas', data: items.map(i => i.qtd_ferramentas), backgroundColor: '#087f73', borderRadius: 5, maxBarThickness: 34 }] }, options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { precision: 0, color: '#93a09f' }, grid: { color: '#edf1f0' } }, x: { ticks: { color: '#93a09f' }, grid: { display: false } } }, plugins: { legend: { display: false } } } });
+  monthlyChart = new Chart(document.getElementById('monthly-chart'), { type: 'bar', data: { labels: items.map(i => i.ano_mes_vencimento), datasets: [{ label: 'Ferramentas', data: items.map(i => i.qtd_ferramentas), backgroundColor: '#25008f', borderRadius: 5, maxBarThickness: 34 }] }, options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { precision: 0, color: '#777780' }, grid: { color: '#ececf0' } }, x: { ticks: { color: '#777780' }, grid: { display: false } } }, plugins: { legend: { display: false } } } });
 }
 function drawMaterialChart(items, selectedCode = '') {
   const selected = selectedCode ? items.filter(item => item.id === selectedCode) : items;

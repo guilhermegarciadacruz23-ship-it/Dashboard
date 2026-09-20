@@ -51,8 +51,8 @@ def buscar_planilha_google() -> pd.DataFrame:
     dados["dias_para_vencer"] = (dados["data_validade"].dt.normalize() - pd.Timestamp.today().normalize()).dt.days
     dados["status"] = dados["dias_para_vencer"].map(classificar_status)
     dados["cor_status"] = dados["status"].map({
-        "VENCIDA": "#B00020", "CRITICO": "#E53935", "ALERTA": "#FB8C00",
-        "AVISO": "#FDD835", "ATENCAO": "#90CAF9", "OK": "#2E7D32",
+        "VENCIDA": "#E31B54", "CRITICO": "#F05A7F", "ALERTA": "#E1A72C",
+        "AVISO": "#E8C55A", "ATENCAO": "#6E69C8", "OK": "#2E8C7D",
     })
     dados["vence_em_30_dias"] = dados["dias_para_vencer"].between(0, 30)
     dados["esta_vencida"] = dados["dias_para_vencer"] < 0

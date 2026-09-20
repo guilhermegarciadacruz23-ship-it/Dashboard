@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ValidaHub | Controle de validade</title>
+  <title>LATAM Airlines | Controle de validade</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 <body>
   <div class="shell">
     <aside class="sidebar">
-      <div class="brand"><span class="brand-mark">V</span><span>ValidaHub</span></div>
+      <div class="brand"><img class="brand-mark" src="{{ url_for('static', filename='latam-logo.jpg') }}" alt="Logo LATAM Airlines"><span>LATAM Airlines</span></div>
       <div class="side-label">Monitoramento</div>
       <div class="side-item active"><span>▦</span> Visão geral</div>
       <div class="side-item"><span>◷</span> Histórico</div>
@@ -22,7 +22,7 @@
     <main class="main">
       <header class="topbar">
         <div><p class="eyebrow">CENTRO DE CONTROLE</p><h1>Validade do parque</h1></div>
-        <div class="top-actions"><span id="updated">Atualizando...</span><button class="export-button" id="export-excel" title="Exportar dados para Excel" style="border:0;border-radius:9px;background:#087f73;color:#fff;padding:11px 14px;font:600 12px 'DM Sans',sans-serif;cursor:pointer">⇩ <span>Exportar Excel</span></button><button class="icon-button" id="refresh" title="Atualizar dados">↻</button></div>
+        <div class="top-actions"><span id="updated">Atualizando...</span><button class="export-button" id="export-excel" title="Exportar dados para Excel" style="border:0;border-radius:9px;background:#25008f;color:#fff;padding:11px 14px;font:600 12px 'DM Sans',sans-serif;cursor:pointer">⇩ <span>Exportar Excel</span></button><button class="icon-button" id="refresh" title="Atualizar dados">↻</button></div>
       </header>
 
       <section id="critical-banner" class="critical-banner hidden">
